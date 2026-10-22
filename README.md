@@ -118,6 +118,32 @@ avertissement avec 3.3.12 (version utilisée et épinglée ici).
 
 ## 3. Compilation Arduino
 
+### Compilation avec Arduino IDE
+
+1. Installer **Arduino IDE 2.x**.
+2. Ajouter l'URL
+   `https://espressif.github.io/arduino-esp32/package_esp32_index.json`
+   dans **Fichier > Préférences > URLs de gestionnaire de cartes
+   supplémentaires**.
+3. Dans **Outils > Gestionnaire de cartes**, installer **esp32 by Espressif
+   Systems** en version **3.3.12**.
+4. Ouvrir directement `maze/maze.ino` via **Fichier > Ouvrir**. Laisser tous
+   les fichiers dans le dossier `maze/` : le dossier doit garder le nom du
+   croquis.
+5. Dans **Outils**, sélectionner la carte **ESP32S3 Dev Module**, puis :
+   - PSRAM : **OPI PSRAM** ;
+   - Flash Size : **8MB (64Mb)** ;
+   - Partition Scheme : **8M with spiffs (3MB APP/1.5MB SPIFFS)** ;
+   - USB CDC On Boot : **Disabled** ;
+   - USB Mode : **Hardware CDC and JTAG**.
+6. Cliquer sur **Vérifier** (Ctrl+R). Aucune bibliothèque externe n'est
+   nécessaire : le pilote de l'écran est déjà dans `maze/`.
+7. Pour téléverser, suivre la sous-section « Téléversement avec les broches
+   USB occupées » ci-dessous : débrancher le joystick de **GP19/GP20** ou
+   maintenir **BOOT** au reset.
+
+### Compilation avec arduino-cli
+
 ```bash
 # Installation (une fois)
 curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
